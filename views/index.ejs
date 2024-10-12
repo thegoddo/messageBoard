@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Message Board</title>
+  </head>
+  <body>
+    <% messages.forEach((message) => { %>
+    <div class="container">
+      <span class="messageText"><%= message.text %></span><br />
+      <span class="messageUser"><%= message.user %></span><br />
+      <span class="messageDate"><%= message.date.toDateString() %></span>
+    </div>
+    <% }); %>
+
+    <form method="post" action="/new">
+      <input type="text" id="name" name="name" placeholder="Enter name" />
+      <input
+        type="text"
+        id="message"
+        name="message"
+        placeholder="Enter message"
+      />
+      <button type="submit">Send Message</button>
+    </form>
+  </body>
+</html>
